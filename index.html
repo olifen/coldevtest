@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="ColDevTest">
+  <head>
+    <meta charset="utf-8">
+    <title>Colossus Bets Dev Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>Colossus Bets Dev Test</h1>
+
+    <main>
+    </main>
+
+    <section ng-controller="PoolsController as pools">
+      <h2>Pools</h2>
+      <div ng-repeat="pools in pools.all">
+        <h4>{{ pools.name }}</h4>
+        <p><strong>Prize:</strong> {{ pools.prize }}</p>
+        <p><strong>Start Time:</strong> {{ pools.start_time }}</p>
+
+        <form ng-submit="submit()" ng-submit=" bets.add()" ng-controller="BetController">
+          <label for="stake">Stake</label>
+          <select name="stake" ng-model="bet.stake">
+            <option value="2">£2.00</option>
+            <option value="1">£1.00</option>
+            <option value=".5">£0.50</option>
+            <option value=".2">£0.20</option>
+          </select>
+          <li>{{ pools.leg_1 }}</li>
+          <input type="checkbox" name="leg_1" value="3-2" ng-model="bet.leg_1"> 3-2
+          <input type="checkbox" name="leg_1" value="3-1"> 3-1
+          <input type="checkbox" name="leg_1" value="3-0"> 3-0
+          <input type="checkbox" name="leg_1" value="2-1"> 2-1
+          <input type="checkbox" name="leg_1" value="2-0"> 2-0
+          <input type="checkbox" name="leg_1" value="1-0"> 1-0
+          <input type="checkbox" name="leg_1" value="0-0"> 0-0
+          <input type="checkbox" name="leg_1" value="1-1"> 1-1
+          <input type="checkbox" name="leg_1" value="aod"> AOD
+          <input type="checkbox" name="leg_1" value="0-1"> 0-1
+          <input type="checkbox" name="leg_1" value="0-2"> 0-2
+          <input type="checkbox" name="leg_1" value="1-2"> 1-2
+          <input type="checkbox" name="leg_1" value="0-3"> 0-3
+          <input type="checkbox" name="leg_1" value="1-3"> 1-3
+          <input type="checkbox" name="leg_1" value="2-3"> 2-3
+          <input type="checkbox" name="leg_1" value="aoa"> AOA
+
+          <li>{{ pools.leg_2 }}</li>
+          <input type="checkbox" name="leg_2" value="aoh"> AOH
+          <input type="checkbox" name="leg_2" value="3-2"> 3-2
+          <input type="checkbox" name="leg_2" value="3-1"> 3-1
+          <input type="checkbox" name="leg_2" value="3-0"> 3-0
+          <input type="checkbox" name="leg_2" value="2-1"> 2-1
+          <input type="checkbox" name="leg_2" value="2-0"> 2-0
+          <input type="checkbox" name="leg_2" value="1-0"> 1-0
+          <input type="checkbox" name="leg_2" value="0-0"> 0-0
+          <input type="checkbox" name="leg_2" value="1-1"> 1-1
+          <input type="checkbox" name="leg_2" value="aod"> AOD
+          <input type="checkbox" name="leg_2" value="0-1"> 0-1
+          <input type="checkbox" name="leg_2" value="0-2"> 0-2
+          <input type="checkbox" name="leg_2" value="1-2"> 1-2
+          <input type="checkbox" name="leg_2" value="0-3"> 0-3
+          <input type="checkbox" name="leg_2" value="1-3"> 1-3
+          <input type="checkbox" name="leg_2" value="2-3"> 2-3
+          <input type="checkbox" name="leg_2" value="aoa"> AOA
+
+          <li>{{ pools.leg_3 }}</li>
+          <input type="checkbox" name="leg_3" value="aoh"> AOH
+          <input type="checkbox" name="leg_3" value="3-2"> 3-2
+          <input type="checkbox" name="leg_3" value="3-1"> 3-1
+          <input type="checkbox" name="leg_3" value="3-0"> 3-0
+          <input type="checkbox" name="leg_3" value="2-1"> 2-1
+          <input type="checkbox" name="leg_3" value="2-0"> 2-0
+          <input type="checkbox" name="leg_3" value="1-0"> 1-0
+          <input type="checkbox" name="leg_3" value="0-0"> 0-0
+          <input type="checkbox" name="leg_3" value="1-1"> 1-1
+          <input type="checkbox" name="leg_3" value="aod"> AOD
+          <input type="checkbox" name="leg_3" value="0-1"> 0-1
+          <input type="checkbox" name="leg_3" value="0-2"> 0-2
+          <input type="checkbox" name="leg_3" value="1-2"> 1-2
+          <input type="checkbox" name="leg_3" value="0-3"> 0-3
+          <input type="checkbox" name="leg_3" value="1-3"> 1-3
+          <input type="checkbox" name="leg_3" value="2-3"> 2-3
+          <input type="checkbox" name="leg_3" value="aoa"> AOA <br>
+
+          <input type="submit" value="Submit" ng-model="bets.newBet.bet">
+          <div ng-controller="BetsController as bets" ng-show="bets.newBet.bets">
+            {{ bets.all }}
+            <h4>Your bets:</h4>
+            <p>Stake - £{{ bet.stake }}</p>
+            <h5>Selections</h5>
+            <p>{{ pools.leg_1 }} - {{ bets.bets.leg_1 }}</p>
+            <p>{{ pools.leg_2 }} - {{ bets.bets.leg_2 }}</p>
+            <p>{{ pools.leg_3 }} - {{ bets.bets.leg_3 }}</p>
+          </div>
+        </form>
+      </div>
+
+
+    </section>
+  </body>
+</html>
