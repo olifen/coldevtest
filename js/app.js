@@ -9,18 +9,13 @@ angular.module('ColDevTest', [])
         $scope.bet.push(this.value);
         $scope.value = '';
       }
-      console.log('you clicked submit');
-      console.log($scope.bet.stake);
-      console.log($scope.bet.leg_1);
     };
   }]);
 
 
 function BetsController() {
   this.bets =
-    { stake: '', leg_1: '', leg_2: '', leg_3: '' }
-;
-  console.log(this.bets.stake);
+    { stake: '', leg_1: '', leg_2: '', leg_3: '' };
 
   this.add = addBet;
   this.newBet = '' ;
